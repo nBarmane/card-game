@@ -18,8 +18,9 @@ export class CardGameComponent {
   constructor(private cardGameService: CardGameService) {}
 
   getHand() {
-    if(this.numberOfCards) {
-      this.isLoading = true;
+    this.isLoading = true;
+    this.apiCallLaunched = false;
+    if(this.numberOfCards>0) {
       this.apiCallLaunched = true;
       this.hand = new Hand();
       
@@ -39,6 +40,8 @@ export class CardGameComponent {
           this.isDataExists = false;
         }
       )
+    } else {
+      this.isDataExists = false;
     }
   }
 
