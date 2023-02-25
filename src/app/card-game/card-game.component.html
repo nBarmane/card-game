@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <h2>Bienvenue dans le jeu!</h2>
+
+  <div>
+    <p>Sélectionner un nombre de carte à distribuer :</p>
+
+    <input type="number" [(ngModel)]="numberOfCards" />
+    <button (click)="getHand()">Distribuer</button>
+  </div>
+
+  <div [hidden]="isLoading">
+    <div [hidden]="!isDataExists">
+      <div class="hand-container">
+        <h3>Main</h3>
+        <div class="cards-container">
+          <div *ngFor="let card of hand.cards"
+            class="card"
+            [ngStyle]="{'background-image': getCardImagePath(card)}">
+          </div>
+        </div>
+      </div>
+
+      <div class="hand-container">
+        <h3>Main triée (par type puis par valeur)</h3>
+        <div class="cards-container">
+          <div *ngFor="let card of hand.sortedCards"
+            class="card"
+            [ngStyle]="{'background-image': getCardImagePath(card)}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [hidden]="isDataExists">
+      <div class="error-container">
+        <h2>Il semble avoir un problème lors de la récupération de données!</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-container" *ngIf="isLoading && apiCallLaunched">
+    <img src="assets/loading-img.gif" class="loading-image" alt="Loading ...">
+  </div>
+</div>

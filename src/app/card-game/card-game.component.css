@@ -1,0 +1,33 @@
+.wrapper {
+  text-align: center;
+}
+.hand-container {
+  margin: 40px;
+}
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  height: 100px;
+  width: 72px;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+}
+.loading-container {
+  min-height: 300px;
+  display: flex;
+}
+.loading-image {
+  height: 40px;
+  width: 40px;
+  margin: auto;
+}
+.error-container {
+  height: 200px;
+  display: flex;
+}
+.error-container h2 {
+  margin: auto;
+  color: red;
+}
